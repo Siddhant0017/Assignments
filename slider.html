@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tailwind Image Slider</title>
+    <link rel="stylesheet" href="./output.css">
+</head>
+<body class="flex flex-col items-center justify-center min-h-screen bg-gray-100">
+
+    <h2 class="text-2xl font-bold mb-4">Image Slider</h2>
+
+    <div class="relative">
+        <img id="slider" class="w-96 h-56 rounded-lg shadow-lg" src="" alt="Image Slider">
+        
+        <button onclick="prevImage()" class="absolute left-0 top-1/2 transform -translate-y-1/2 bg-gray-700 text-white px-4 py-2 rounded-l-lg hover:bg-gray-900">
+            &#8592;
+        </button>
+        <button onclick="nextImage()" class="absolute right-0 top-1/2 transform -translate-y-1/2 bg-gray-700 text-white px-4 py-2 rounded-r-lg hover:bg-gray-900">
+            &#8594;
+        </button>
+    </div>
+
+    <script>
+    
+        let images = [
+            "https://img.freepik.com/premium-psd/colorful-bird-…-isolated-transparent-background_723616-13069.jpg",
+            "https://img.freepik.com/premium-photo/yellow-sunfl…nging-sunflower-sunflower-seed-png_994118-261.jpg",
+            "https://img.freepik.com/free-psd/islamic-ramadan-k…eem-lantern-transparent-background_84443-1833.jpg"
+        ];
+
+        let index = 0;
+
+        function showImage() {
+            document.getElementById("slider").src = images[index];
+        }
+
+        function nextImage() {
+            index = (index + 1) % images.length; 
+            showImage();
+        }
+
+        function prevImage() {
+            index = (index - 1 + images.length) % images.length;
+            showImage();
+        }
+
+       
+        showImage();
+    </script>
+
+</body>
+</html>
